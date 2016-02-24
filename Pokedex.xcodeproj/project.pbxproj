@@ -131,9 +131,9 @@
 			children = (
 				CEF3481C1C7D57CC007B4568 /* Model */,
 				CE4687551C7D5D2E002B2F81 /* View */,
+				CEB6F64E1C7E5F0000AFAE69 /* Controller */,
 				CEF348191C7D5646007B4568 /* Data */,
 				CE83D5991C7D537A0052B72E /* AppDelegate.swift */,
-				CE83D59B1C7D537A0052B72E /* ViewController.swift */,
 				CE83D59D1C7D537A0052B72E /* Main.storyboard */,
 				CE83D5A31C7D537A0052B72E /* Assets.xcassets */,
 				CE83D5A51C7D537A0052B72E /* LaunchScreen.storyboard */,
@@ -159,6 +159,14 @@
 				CE83D5BE1C7D537A0052B72E /* Info.plist */,
 			);
 			path = PokedexUITests;
+			sourceTree = "<group>";
+		};
+		CEB6F64E1C7E5F0000AFAE69 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CE83D59B1C7D537A0052B72E /* ViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		CEF348191C7D5646007B4568 /* Data */ = {
