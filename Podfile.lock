@@ -1,0 +1,10 @@
+PODS:
+  - SwiftCSV (0.2.2)
+
+DEPENDENCIES:
+  - SwiftCSV
+
+SPEC CHECKSUMS:
+  SwiftCSV: 29106dc25a7eca542a80486ae7f0ee19ccd37b9f
+
+COCOAPODS: 0.39.0
