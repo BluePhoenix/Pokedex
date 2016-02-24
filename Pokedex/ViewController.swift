@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftCSV
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
@@ -53,9 +54,23 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     // MARK: Data handling
     func parsePokemonCSV() {
-        // Test data
-        for i in 1...718 {
-            pokemonData.append(Pokemon(name: "Test", pokedexID: i))
+        
+        if let filePath = NSBundle.mainBundle().pathForResource("pokemon", ofType: "csv") {
+            do {
+                let csv = try CSV(name: filePath, delimiter: NSCharacterSet(charactersInString: ","), encoding: NSUTF8StringEncoding)
+                let rows = csv.rows
+                
+                for row in rows {
+                    if let stringID = row["id"],
+                    let pokemonID = Int(stringID),
+                    let pokemonName = row["identifier"] {
+                        let pokemon = Pokemon(name: pokemonName, pokedexID: pokemonID)
+                        pokemonData.append(pokemon)
+                    }
+                }
+            } catch let err as NSError {
+                print(err.debugDescription)
+            }
         }
     }
 
