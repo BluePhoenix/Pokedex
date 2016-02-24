@@ -21,13 +21,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        for i in 1...30 {
+        // Test data
+        for i in 1...718 {
             pokemonData.append(Pokemon(name: "Test", pokedexID: i))
         }
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PokemonCell", forIndexPath: indexPath) as? PokemonCollectionViewCell {
+            
+            cell.configureCell(pokemonData[indexPath.row])
+            
             return cell
         } else {
             return UICollectionViewCell()
