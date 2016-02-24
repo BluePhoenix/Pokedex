@@ -21,10 +21,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        // Test data
-        for i in 1...718 {
-            pokemonData.append(Pokemon(name: "Test", pokedexID: i))
-        }
+        parsePokemonCSV()
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -52,6 +49,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSizeMake(104, 104)
+    }
+    
+    // MARK: Data handling
+    func parsePokemonCSV() {
+        // Test data
+        for i in 1...718 {
+            pokemonData.append(Pokemon(name: "Test", pokedexID: i))
+        }
     }
 
 }
