@@ -27,6 +27,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.delegate = self
         collectionView.dataSource = self
         mainSearchBar.delegate = self
+        mainSearchBar.returnKeyType = .Done
         
         initAudio()
         parsePokemonCSV()
@@ -110,9 +111,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+    
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == nil || searchBar.text == "" {
             pokemonData = allPokemonData
+            view.endEditing(true)
         } else {
             let lowerSearchString = searchBar.text!.lowercaseString
             pokemonData = allPokemonData.filter({$0.name.rangeOfString(lowerSearchString) != nil})
