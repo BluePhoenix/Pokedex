@@ -99,7 +99,18 @@ class Pokemon {
                 self._type = typeString
             }
             
-            
+            if let descriptions = resultDictionary["descriptions"] as? [[String: String]] where descriptions.count > 0, let resourceURI = descriptions[0]["resource_uri"], let resourceURL = NSURL(string: (baseURL + resourceURI)) {
+                
+                Alamofire.request(.GET, resourceURL).responseJSON(completionHandler: { (descriptionResponse) -> Void in
+                    if let descriptionDictionary = descriptionResponse.result.value as? [String: AnyObject], let description = descriptionDictionary["description"] as? String {
+                        self._description = description
+                    } else {
+                        self._description = ""
+                    }
+                    print(self._description)
+                })
+                
+            }
             
             print(self._weight)
             print(self._height)
@@ -109,4 +120,5 @@ class Pokemon {
         }
         
     }
+    
 }
