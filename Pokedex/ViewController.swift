@@ -10,11 +10,14 @@ import UIKit
 import AVFoundation
 import SwiftCSV
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var mainSearchBar: UISearchBar!
 
+    var allPokemonData: [Pokemon] = [Pokemon]()
     var pokemonData: [Pokemon] = [Pokemon]()
+    var filteredPokemon: [Pokemon] = [Pokemon]()
     var musicPlayer: AVAudioPlayer!
     
     override func viewDidLoad() {
@@ -23,6 +26,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        mainSearchBar.delegate = self
         
         initAudio()
         parsePokemonCSV()
@@ -68,9 +72,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     let pokemonID = Int(stringID),
                     let pokemonName = row["identifier"] {
                         let pokemon = Pokemon(name: pokemonName, pokedexID: pokemonID)
-                        pokemonData.append(pokemon)
+                        allPokemonData.append(pokemon)
                     }
                 }
+                
+                pokemonData = allPokemonData
             } catch let err as NSError {
                 print(err.debugDescription)
             }
@@ -102,6 +108,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             musicPlayer.play()
             sender.alpha = 1
         }
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text == "" {
+            pokemonData = allPokemonData
+        } else {
+            let lowerSearchString = searchBar.text!.lowercaseString
+            pokemonData = allPokemonData.filter({$0.name.rangeOfString(lowerSearchString) != nil})
+        }
+        
+        collectionView.reloadData()
     }
 
 }
