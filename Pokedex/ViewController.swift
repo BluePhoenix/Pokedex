@@ -94,8 +94,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    @IBAction func musicButtonPressed(sender: AnyObject) {
-        // TODO: Need to implemnt music toggling
+    @IBAction func musicButtonPressed(sender: UIButton) {
+        if musicPlayer.playing {
+            musicPlayer.stop()
+            sender.alpha = 0.38
+        } else {
+            musicPlayer.play()
+            sender.alpha = 1
+        }
     }
 
 }
