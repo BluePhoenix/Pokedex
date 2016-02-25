@@ -19,6 +19,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var pokemonData: [Pokemon] = [Pokemon]()
     var filteredPokemon: [Pokemon] = [Pokemon]()
     var musicPlayer: AVAudioPlayer!
+    var isFiltering = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PokemonCell", forIndexPath: indexPath) as? PokemonCollectionViewCell {
             
-            cell.configureCell(pokemonData[indexPath.row])
+            if isFiltering {
+                cell.configureCell(filteredPokemon[indexPath.row])
+            } else {
+                cell.configureCell(pokemonData[indexPath.row])
+            }
             
             return cell
         } else {
@@ -48,7 +53,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pokemonData.count
+        if isFiltering {
+            return filteredPokemon.count
+        } else {
+            return pokemonData.count
+        }
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -112,10 +121,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == nil || searchBar.text == "" {
-            pokemonData = allPokemonData
+            isFiltering = false
         } else {
             let lowerSearchString = searchBar.text!.lowercaseString
-            pokemonData = allPokemonData.filter({$0.name.rangeOfString(lowerSearchString) != nil})
+            filteredPokemon = allPokemonData.filter({$0.name.rangeOfString(lowerSearchString) != nil})
+            isFiltering = true
         }
         
         collectionView.reloadData()
