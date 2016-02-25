@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import Alamofire
+
+typealias DownloadComplete = () -> ()
 
 class Pokemon {
     private var _name: String!
@@ -53,5 +56,21 @@ class Pokemon {
     init(name: String, pokedexID: Int) {
         _name = name
         _pokedexID = pokedexID
+    }
+    
+    func downloadPokemonDetails(completed: DownloadComplete) {
+        // api/v2/pokemon/{id or name}
+        let baseURL = "http://pokeapi.co"
+        guard let pokemonURL = NSURL(string: "\(baseURL)/api/v2/pokemon/\(pokedexID)/") else {
+            print("Could not generate URL")
+            return
+        }
+        
+        Alamofire.request(.GET, pokemonURL).responseJSON { response in
+            let result = response.result
+            
+            print(result.value?.debugDescription)
+        }
+        
     }
 }

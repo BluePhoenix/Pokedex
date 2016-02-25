@@ -23,7 +23,7 @@ class PokemonDetailViewController: UIViewController {
     @IBOutlet weak var currentEvolutionImage: UIImageView!
     @IBOutlet weak var nextEvolutionImage: UIImageView!
     
-    var pokemon: Pokemon?
+    var pokemon: Pokemon!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,15 @@ class PokemonDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        nameLabel.text = pokemon?.name
+        nameLabel.text = pokemon.name
+        mainImageView.image = UIImage(named: "\(pokemon.pokedexID)")
+        
+        pokemon.downloadPokemonDetails { () -> () in
+            self.descriptionLabel.text = self.pokemon.description
+            self.typeLabel.text = self.pokemon.type
+            // TODO: Finish adding the details here
+        }
+        
     }
 
     @IBAction func backButtonPressed(sender: AnyObject) {
