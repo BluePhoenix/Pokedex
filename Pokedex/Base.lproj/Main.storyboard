@@ -38,13 +38,26 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkN-N9-sWa">
+                                        <rect key="frame" x="564" y="15" width="30" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="🎶">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="musicButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Qo-mR-aWr"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.2666666667" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="jkN-N9-sWa" firstAttribute="trailing" secondItem="tLe-un-MDp" secondAttribute="trailingMargin" constant="2" id="D49-7f-nXP"/>
                                     <constraint firstAttribute="height" constant="56" id="PeO-N3-6Eg"/>
                                     <constraint firstItem="TXJ-6D-MZx" firstAttribute="top" secondItem="tLe-un-MDp" secondAttribute="top" constant="20" id="Qqc-hD-QiA"/>
                                     <constraint firstAttribute="bottom" secondItem="TXJ-6D-MZx" secondAttribute="bottom" constant="8" id="Wwh-Op-TUF"/>
                                     <constraint firstItem="TXJ-6D-MZx" firstAttribute="centerX" secondItem="tLe-un-MDp" secondAttribute="centerX" id="gL0-pN-VOU"/>
+                                    <constraint firstItem="jkN-N9-sWa" firstAttribute="centerY" secondItem="TXJ-6D-MZx" secondAttribute="centerY" id="zpe-oM-bHW"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Tb-07-fGm">

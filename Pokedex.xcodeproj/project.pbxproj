@@ -18,6 +18,7 @@
 		CE83D5B21C7D537A0052B72E /* PokedexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83D5B11C7D537A0052B72E /* PokedexTests.swift */; };
 		CE83D5BD1C7D537A0052B72E /* PokedexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE83D5BC1C7D537A0052B72E /* PokedexUITests.swift */; };
 		CEB6F6501C7E8AB600AFAE69 /* Pokemon-Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEB6F64F1C7E8AB600AFAE69 /* Pokemon-Solid.ttf */; };
+		CEB6F6521C7E8E3B00AFAE69 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEB6F6511C7E8E3B00AFAE69 /* music.mp3 */; };
 		CEF3481B1C7D5658007B4568 /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = CEF3481A1C7D5658007B4568 /* pokemon.csv */; };
 		CEF3481E1C7D57F5007B4568 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF3481D1C7D57F5007B4568 /* Pokemon.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		CE83D5BC1C7D537A0052B72E /* PokedexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexUITests.swift; sourceTree = "<group>"; };
 		CE83D5BE1C7D537A0052B72E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEB6F64F1C7E8AB600AFAE69 /* Pokemon-Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon-Solid.ttf"; sourceTree = "<group>"; };
+		CEB6F6511C7E8E3B00AFAE69 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		CEF3481A1C7D5658007B4568 /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
 		CEF3481D1C7D57F5007B4568 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +176,7 @@
 		CEF348191C7D5646007B4568 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CEB6F6511C7E8E3B00AFAE69 /* music.mp3 */,
 				CEB6F64F1C7E8AB600AFAE69 /* Pokemon-Solid.ttf */,
 				CEF3481A1C7D5658007B4568 /* pokemon.csv */,
 			);
@@ -305,6 +308,7 @@
 			files = (
 				CE83D5A71C7D537A0052B72E /* LaunchScreen.storyboard in Resources */,
 				CE83D5A41C7D537A0052B72E /* Assets.xcassets in Resources */,
+				CEB6F6521C7E8E3B00AFAE69 /* music.mp3 in Resources */,
 				CEB6F6501C7E8AB600AFAE69 /* Pokemon-Solid.ttf in Resources */,
 				CEF3481B1C7D5658007B4568 /* pokemon.csv in Resources */,
 				CE83D59F1C7D537A0052B72E /* Main.storyboard in Resources */,

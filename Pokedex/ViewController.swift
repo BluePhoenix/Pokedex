@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 import SwiftCSV
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -14,14 +15,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var collectionView: UICollectionView!
 
     var pokemonData: [Pokemon] = [Pokemon]()
+    var musicPlayer: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view,  typically from a nib.
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        initAudio()
         parsePokemonCSV()
     }
     
@@ -72,6 +75,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 print(err.debugDescription)
             }
         }
+    }
+    
+    func initAudio() {
+        guard let path = NSBundle.mainBundle().pathForResource("music", ofType: "mp3"), let musicURL = NSURL(string: path) else {
+            print("Could not load music")
+            return
+        }
+        
+        do {
+            musicPlayer = try AVAudioPlayer(contentsOfURL: musicURL)
+            musicPlayer.prepareToPlay()
+            musicPlayer.numberOfLoops = -1
+            musicPlayer.volume = 0.8
+            musicPlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+    }
+    
+    @IBAction func musicButtonPressed(sender: AnyObject) {
+        // TODO: Need to implemnt music toggling
     }
 
 }
