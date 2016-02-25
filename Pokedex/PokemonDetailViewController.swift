@@ -38,6 +38,10 @@ class PokemonDetailViewController: UIViewController {
         pokemon.downloadPokemonDetails { () -> () in
             self.descriptionLabel.text = self.pokemon.description
             self.typeLabel.text = self.pokemon.type
+            self.weightLabel.text = self.pokemon.weight
+            self.heightLabel.text = self.pokemon.height
+            self.baseAttackLabel.text = self.pokemon.attack
+            self.defenseLabel.text = self.pokemon.defense
             // TODO: Finish adding the details here
         }
         

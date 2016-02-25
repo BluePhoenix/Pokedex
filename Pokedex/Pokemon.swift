@@ -19,7 +19,7 @@ class Pokemon {
     private var _type: String!
     private var _height: String!
     private var _weight: String!
-    private var _baseAttack: String!
+    private var _attack: String!
     private var _defense: String!
     private var _nextEvolutionText: String!
     
@@ -43,8 +43,8 @@ class Pokemon {
     var weight: String {
         return _weight
     }
-    var baseAttack: String {
-        return _baseAttack
+    var attack: String {
+        return _attack
     }
     var defense: String {
         return _defense
@@ -61,7 +61,7 @@ class Pokemon {
     func downloadPokemonDetails(completed: DownloadComplete) {
         // api/v2/pokemon/{id or name}
         let baseURL = "http://pokeapi.co"
-        guard let pokemonURL = NSURL(string: "\(baseURL)/api/v2/pokemon/\(pokedexID)/") else {
+        guard let pokemonURL = NSURL(string: "\(baseURL)/api/v1/pokemon/\(pokedexID)/") else {
             print("Could not generate URL")
             return
         }
@@ -69,7 +69,43 @@ class Pokemon {
         Alamofire.request(.GET, pokemonURL).responseJSON { response in
             let result = response.result
             
-            print(result.value?.debugDescription)
+            guard let resultDictionary = result.value as? [String: AnyObject] else {
+                return
+            }
+            
+            if let weight = resultDictionary["weight"] as? String {
+                self._weight = weight
+            }
+            if let height = resultDictionary["height"] as? String {
+                self._height = height
+            }
+            if let attack = resultDictionary["attack"] as? Int {
+                self._attack = "\(attack)"
+            }
+            if let defense = resultDictionary["defense"] as? Int {
+                self._defense = "\(defense)"
+            }
+            
+            if let types = resultDictionary["types"] as? [[String: String]] where types.count > 0 {
+                var separator = ""
+                var typeString = ""
+                for type in types {
+                    print("11")
+                    if let typeName = type["name"] {
+                        typeString = typeString + separator + typeName.capitalizedString
+                        separator = " / "
+                    }
+                }
+                self._type = typeString
+            }
+            
+            
+            
+            print(self._weight)
+            print(self._height)
+            print(self._attack)
+            print(self._defense)
+            print(self._type)
         }
         
     }
