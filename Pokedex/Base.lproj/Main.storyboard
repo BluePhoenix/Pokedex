@@ -9,6 +9,9 @@
         <mutableArray key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
         </mutableArray>
+        <mutableArray key="Pokemon-Solid.ttf">
+            <string>PokemonSolidNormal</string>
+        </mutableArray>
     </customFonts>
     <scenes>
         <!--View Controller-->
@@ -27,14 +30,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLe-un-MDp">
-                                <rect key="frame" x="0.0" y="-20" width="600" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TXJ-6D-MZx">
+                                        <rect key="frame" x="254" y="20" width="92" height="28"/>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="24"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.2666666667" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="PeO-N3-6Eg"/>
+                                    <constraint firstItem="TXJ-6D-MZx" firstAttribute="top" secondItem="tLe-un-MDp" secondAttribute="top" constant="20" id="Qqc-hD-QiA"/>
+                                    <constraint firstAttribute="bottom" secondItem="TXJ-6D-MZx" secondAttribute="bottom" constant="8" id="Wwh-Op-TUF"/>
+                                    <constraint firstItem="TXJ-6D-MZx" firstAttribute="centerX" secondItem="tLe-un-MDp" secondAttribute="centerX" id="gL0-pN-VOU"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Tb-07-fGm">
-                                <rect key="frame" x="8" y="88" width="584" height="504"/>
+                                <rect key="frame" x="8" y="108" width="584" height="484"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yy2-eK-nVR">
                                     <size key="itemSize" width="128" height="128"/>
@@ -84,7 +98,7 @@
                                 </cells>
                             </collectionView>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="GzW-8u-uBm">
-                                <rect key="frame" x="0.0" y="36" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="600" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="KLu-4H-m7p"/>
                                 </constraints>
@@ -105,7 +119,7 @@
                             <constraint firstItem="GzW-8u-uBm" firstAttribute="top" secondItem="tLe-un-MDp" secondAttribute="bottom" id="eMZ-aO-OBT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GzW-8u-uBm" secondAttribute="trailing" constant="-20" id="kjv-1a-KfW"/>
                             <constraint firstItem="cpi-rk-2br" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mvL-tu-g48"/>
-                            <constraint firstItem="tLe-un-MDp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-20" id="nau-oQ-bTZ"/>
+                            <constraint firstItem="tLe-un-MDp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nau-oQ-bTZ"/>
                             <constraint firstItem="cpi-rk-2br" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="pLo-aI-0Dg"/>
                         </constraints>
                     </view>
