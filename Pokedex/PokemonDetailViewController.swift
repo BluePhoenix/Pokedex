@@ -24,7 +24,7 @@ class PokemonDetailViewController: UIViewController {
     @IBOutlet weak var nextEvolutionImage: UIImageView!
     
     var pokemon: Pokemon!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
