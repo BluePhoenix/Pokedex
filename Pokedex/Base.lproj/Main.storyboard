@@ -139,11 +139,52 @@
                     <connections>
                         <outlet property="collectionView" destination="9Tb-07-fGm" id="18N-N9-kQf"/>
                         <outlet property="mainSearchBar" destination="GzW-8u-uBm" id="bgd-bg-1gU"/>
+                        <segue destination="oFO-6w-7m2" kind="show" identifier="PokemonDetailViewController" id="qkl-A8-sbS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="305" y="429"/>
+        </scene>
+        <!--Pokemon Detail View Controller-->
+        <scene sceneID="wvp-Vg-o8j">
+            <objects>
+                <viewController id="oFO-6w-7m2" customClass="PokemonDetailViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iMb-sM-alJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="zCi-Wc-5yg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PtV-F4-8Wx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="4Rz-Q8-MHr">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8E-Jc-hrg">
+                                <rect key="frame" x="17" y="28" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="w8E-Jc-hrg" firstAttribute="top" secondItem="iMb-sM-alJ" secondAttribute="bottom" constant="8" symbolic="YES" id="PUg-gN-mr7"/>
+                            <constraint firstItem="4Rz-Q8-MHr" firstAttribute="top" secondItem="PtV-F4-8Wx" secondAttribute="top" id="Pmw-YL-c3I"/>
+                            <constraint firstItem="w8E-Jc-hrg" firstAttribute="leading" secondItem="PtV-F4-8Wx" secondAttribute="leadingMargin" constant="-3" id="ReO-NJ-wNd"/>
+                            <constraint firstItem="4Rz-Q8-MHr" firstAttribute="leading" secondItem="PtV-F4-8Wx" secondAttribute="leading" id="Zfa-Zm-Yb8"/>
+                            <constraint firstAttribute="trailing" secondItem="4Rz-Q8-MHr" secondAttribute="trailing" id="f8K-qo-oiP"/>
+                            <constraint firstItem="4Rz-Q8-MHr" firstAttribute="bottom" secondItem="zCi-Wc-5yg" secondAttribute="top" id="o7l-n7-zRj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="w8E-Jc-hrg" id="LFW-4E-s50"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fHh-Ga-Ezq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1116" y="429"/>
         </scene>
     </scenes>
     <resources>
