@@ -175,6 +175,9 @@
                                         <rect key="frame" x="8" y="12" width="30" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <state key="normal" title="🔙"/>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="oFO-6w-7m2" eventType="touchUpInside" id="VE1-Nm-CPg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.2666666667" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
@@ -368,7 +371,18 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="baseAttackLabel" destination="IR8-OB-yQB" id="UcM-ZQ-Gl0"/>
+                        <outlet property="currentEvolutionImage" destination="PSF-DE-iBR" id="Iko-Vf-gvB"/>
+                        <outlet property="defenseLabel" destination="eUv-TL-X2e" id="4LT-pV-Hzm"/>
+                        <outlet property="descriptionLabel" destination="n60-GB-D6S" id="oqV-Lg-Rba"/>
+                        <outlet property="heightLabel" destination="osL-YU-seV" id="szv-Af-VoY"/>
+                        <outlet property="mainImageView" destination="LHa-Er-XKE" id="5m8-t7-Kdx"/>
                         <outlet property="nameLabel" destination="dP8-5c-2wc" id="NwS-ER-kfh"/>
+                        <outlet property="nextEvolutionImage" destination="lZf-I5-E7q" id="1qZ-mj-Kae"/>
+                        <outlet property="nextEvolutionLabel" destination="jGD-f1-oXv" id="h5p-Ym-OWi"/>
+                        <outlet property="pokedexIDLabel" destination="80G-ki-WEJ" id="J7j-bK-voo"/>
+                        <outlet property="typeLabel" destination="jfR-tw-v7v" id="ETm-C3-ktz"/>
+                        <outlet property="weightLabel" destination="g6d-u0-edd" id="kh6-Rb-4dx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHh-Ga-Ezq" userLabel="First Responder" sceneMemberID="firstResponder"/>
