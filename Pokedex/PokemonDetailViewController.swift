@@ -34,6 +34,7 @@ class PokemonDetailViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         nameLabel.text = pokemon.name
         mainImageView.image = UIImage(named: "\(pokemon.pokedexID)")
+        currentEvolutionImage = mainImageView
         
         pokemon.downloadPokemonDetails { () -> () in
             self.descriptionLabel.text = self.pokemon.description
@@ -42,6 +43,8 @@ class PokemonDetailViewController: UIViewController {
             self.heightLabel.text = self.pokemon.height
             self.baseAttackLabel.text = self.pokemon.attack
             self.defenseLabel.text = self.pokemon.defense
+            
+            self.nextEvolutionImage = UIImage(named: "\(self.pokemon.nextEvolutionID)")
             // TODO: Finish adding the details here
         }
         

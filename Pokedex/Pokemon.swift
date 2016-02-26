@@ -24,33 +24,33 @@ class Pokemon {
     private var _nextEvolutionText: String!
     
     var name: String {
-        return _name
+        return _name ?? ""
     }
     
     var pokedexID: Int {
-        return _pokedexID
+        return _pokedexID ?? 0
     }
     
     var description: String {
-        return _description
+        return _description ?? ""
     }
     var type: String {
-        return _type
+        return _type ?? ""
     }
     var height: String {
-        return _height
+        return _height ?? ""
     }
     var weight: String {
-        return _weight
+        return _weight ?? ""
     }
     var attack: String {
-        return _attack
+        return _attack ?? ""
     }
     var defense: String {
-        return _defense
+        return _defense ?? ""
     }
     var nextEvolutionText: String {
-        return _nextEvolutionText
+        return _nextEvolutionText ?? ""
     }
     
     init(name: String, pokedexID: Int) {
@@ -108,6 +108,7 @@ class Pokemon {
                         self._description = ""
                     }
                     print(self._description)
+                    completed()
                 })
                 
             }
@@ -117,6 +118,8 @@ class Pokemon {
             print(self._attack)
             print(self._defense)
             print(self._type)
+            
+            completed()
         }
         
     }
