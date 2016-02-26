@@ -37,21 +37,33 @@ class PokemonDetailViewController: UIViewController {
         mainImageView.image = currentPokemonImage
         currentEvolutionImage.image = currentPokemonImage
         
+        // This call to updateData() might return with empty strings
+        // if the data has not yet been downloaded
+        updateData()
+        
+        // TODO: Change this to only get called if data is missing
         pokemon.downloadPokemonDetails { () -> () in
-            self.descriptionLabel.text = self.pokemon.description
-            self.typeLabel.text = self.pokemon.type
-            self.weightLabel.text = self.pokemon.weight
-            self.heightLabel.text = self.pokemon.height
-            self.baseAttackLabel.text = self.pokemon.attack
-            self.defenseLabel.text = self.pokemon.defense
-            
-            self.nextEvolutionImage.image = UIImage(named: "\(self.pokemon.nextEvolutionID)")
-            self.nextEvolutionLabel.text = self.pokemon.nextEvolutionText
+            // Yes, call again after download is complete
+            self.updateData()
         }
         
     }
 
     @IBAction func backButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func updateData() {
+        nameLabel.text = pokemon.name.capitalizedString
+        pokedexIDLabel.text = String.init(format: "#%03d", pokemon.pokedexID)
+        descriptionLabel.text = pokemon.description
+        typeLabel.text = pokemon.type
+        weightLabel.text = pokemon.weight
+        heightLabel.text = pokemon.height
+        baseAttackLabel.text = pokemon.attack
+        defenseLabel.text = pokemon.defense
+        
+        nextEvolutionImage.image = UIImage(named: "\(pokemon.nextEvolutionID)")
+        nextEvolutionLabel.text = pokemon.nextEvolutionText
     }
 }
