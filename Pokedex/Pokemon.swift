@@ -22,6 +22,7 @@ class Pokemon {
     private var _defense: String!
     private var _nextEvolutionText: String!
     private var _nextEvolutionID: String!
+    private var _nextEvolutionLevel: String!
     
     var name: String {
         return _name ?? ""
@@ -52,6 +53,9 @@ class Pokemon {
     }
     var nextEvolutionID: String {
         return _nextEvolutionID ?? ""
+    }
+    var nextEvolutionLevel: String {
+        return _nextEvolutionLevel ?? ""
     }
     
     init(name: String, pokedexID: Int) {
@@ -113,7 +117,6 @@ class Pokemon {
             
             if let evolutions = resultDictionary["evolutions"] as? [[String: AnyObject]] where evolutions.count > 0 {
                 if let nextEvolution = evolutions[0]["to"] as? String,
-                let level = evolutions[0]["level"],
                 let resourceURI = evolutions[0]["resource_uri"] {
                     
                     // Ignore 'mega' evolutions for now
@@ -122,7 +125,12 @@ class Pokemon {
                         let nextPokemonID = trimmedURI.stringByReplacingOccurrencesOfString("/", withString: "")
                         
                         self._nextEvolutionID = nextPokemonID
-                        self._nextEvolutionText = "\(nextEvolution) at level \(level)"
+                        self._nextEvolutionText = "\(nextEvolution)"
+                        
+                        if let level = evolutions[0]["level"] {
+                            self._nextEvolutionLevel = "\(level)"
+                        }
+
                     }
                 }
             }

@@ -65,8 +65,13 @@ class PokemonDetailViewController: UIViewController {
         
         if pokemon.nextEvolutionID != "" {
             nextEvolutionImage.image = UIImage(named: "\(pokemon.nextEvolutionID)")
-            nextEvolutionLabel.text = pokemon.nextEvolutionText
+            
+            var evolutionText = pokemon.nextEvolutionText
             // Not hiding or showing the next evolution image because of the popping when data downloads
+            if pokemon.nextEvolutionLevel != "" {
+                evolutionText += " at level \(pokemon.nextEvolutionLevel)"
+            }
+            nextEvolutionLabel.text = evolutionText
         } else {
             nextEvolutionLabel.text = "No evolution"
             nextEvolutionImage.image = nil
