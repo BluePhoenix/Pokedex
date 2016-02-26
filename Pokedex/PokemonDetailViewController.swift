@@ -63,7 +63,13 @@ class PokemonDetailViewController: UIViewController {
         baseAttackLabel.text = pokemon.attack
         defenseLabel.text = pokemon.defense
         
-        nextEvolutionImage.image = UIImage(named: "\(pokemon.nextEvolutionID)")
-        nextEvolutionLabel.text = pokemon.nextEvolutionText
+        if pokemon.nextEvolutionID != "" {
+            nextEvolutionImage.image = UIImage(named: "\(pokemon.nextEvolutionID)")
+            nextEvolutionLabel.text = pokemon.nextEvolutionText
+            // Not hiding or showing the next evolution image because of the popping when data downloads
+        } else {
+            nextEvolutionLabel.text = "No evolution"
+            nextEvolutionImage.image = nil
+        }
     }
 }

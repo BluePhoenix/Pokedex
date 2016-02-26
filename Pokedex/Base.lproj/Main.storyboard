@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="cpi-rk-2br">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="100" width="600" height="500"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLe-un-MDp">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="56"/>
@@ -119,7 +119,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90529561042785645" green="0.90526849031448364" blue="0.90528386831283569" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="9Tb-07-fGm" secondAttribute="trailing" constant="8" id="32z-Tc-pYN"/>
                             <constraint firstAttribute="trailing" secondItem="tLe-un-MDp" secondAttribute="trailing" id="7TN-G4-3g8"/>
@@ -134,7 +134,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="GzW-8u-uBm" secondAttribute="trailing" constant="-20" id="kjv-1a-KfW"/>
                             <constraint firstItem="cpi-rk-2br" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mvL-tu-g48"/>
                             <constraint firstItem="tLe-un-MDp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nau-oQ-bTZ"/>
-                            <constraint firstItem="cpi-rk-2br" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="pLo-aI-0Dg"/>
+                            <constraint firstItem="cpi-rk-2br" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="pLo-aI-0Dg"/>
                         </constraints>
                     </view>
                     <connections>
