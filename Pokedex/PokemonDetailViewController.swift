@@ -46,7 +46,7 @@ class PokemonDetailViewController: UIViewController {
             self.defenseLabel.text = self.pokemon.defense
             
             self.nextEvolutionImage.image = UIImage(named: "\(self.pokemon.nextEvolutionID)")
-            // TODO: Finish adding the details here
+            self.nextEvolutionLabel.text = self.pokemon.nextEvolutionText
         }
         
     }

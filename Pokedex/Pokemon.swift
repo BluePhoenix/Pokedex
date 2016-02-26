@@ -14,7 +14,6 @@ typealias DownloadComplete = () -> ()
 class Pokemon {
     private var _name: String!
     private var _pokedexID: Int!
-    
     private var _description: String!
     private var _type: String!
     private var _height: String!
@@ -27,11 +26,9 @@ class Pokemon {
     var name: String {
         return _name ?? ""
     }
-    
     var pokedexID: Int {
         return _pokedexID ?? 0
     }
-    
     var description: String {
         return _description ?? ""
     }
@@ -94,7 +91,6 @@ class Pokemon {
                 var separator = ""
                 var typeString = ""
                 for type in types {
-                    print("11")
                     if let typeName = type["name"] {
                         typeString = typeString + separator + typeName.capitalizedString
                         separator = " / "
@@ -111,13 +107,12 @@ class Pokemon {
                     } else {
                         self._description = ""
                     }
-                    print(self._description)
                     completed()
                 })
             }
             
-            if let evolutions = resultDictionary["evolutions"] as? [[String: String]] where evolutions.count > 0 {
-                if let nextEvolution = evolutions[0]["to"],
+            if let evolutions = resultDictionary["evolutions"] as? [[String: AnyObject]] where evolutions.count > 0 {
+                if let nextEvolution = evolutions[0]["to"] as? String,
                 let level = evolutions[0]["level"],
                 let resourceURI = evolutions[0]["resource_uri"] {
                     
@@ -132,14 +127,6 @@ class Pokemon {
                 }
             }
             
-            print(self._weight)
-            print(self._height)
-            print(self._attack)
-            print(self._defense)
-            print(self._type)
-            
-//            print(self._nextEvolutionText)
-//            print("Next evolution: \(self._nextEvolutionID)")
             completed()
         }
         
