@@ -105,7 +105,9 @@
 		CE4687551C7D5D2E002B2F81 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE83D59D1C7D537A0052B72E /* Main.storyboard */,
 				CE4687571C7D5D96002B2F81 /* PokemonCollectionViewCell.swift */,
+				CE83D5A51C7D537A0052B72E /* LaunchScreen.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -140,11 +142,8 @@
 				CEB6F64E1C7E5F0000AFAE69 /* Controller */,
 				CEF348191C7D5646007B4568 /* Resources */,
 				CE83D5991C7D537A0052B72E /* AppDelegate.swift */,
-				CE83D59D1C7D537A0052B72E /* Main.storyboard */,
 				CE83D5A31C7D537A0052B72E /* Assets.xcassets */,
-				CE83D5A51C7D537A0052B72E /* LaunchScreen.storyboard */,
 				CE83D5A81C7D537A0052B72E /* Info.plist */,
-				CE83D5A01C7D537A0052B72E /* Pokedex.xcdatamodeld */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -190,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				CEF3481D1C7D57F5007B4568 /* Pokemon.swift */,
+				CE83D5A01C7D537A0052B72E /* Pokedex.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
