@@ -16,7 +16,7 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.cornerRadius = 6.0
+        layer.cornerRadius = 8.0
         clipsToBounds = true
     }
     

@@ -22,6 +22,7 @@ class Pokemon {
     private var _attack: String!
     private var _defense: String!
     private var _nextEvolutionText: String!
+    private var _nextEvolutionID: String!
     
     var name: String {
         return _name ?? ""
@@ -51,6 +52,9 @@ class Pokemon {
     }
     var nextEvolutionText: String {
         return _nextEvolutionText ?? ""
+    }
+    var nextEvolutionID: String {
+        return _nextEvolutionID ?? ""
     }
     
     init(name: String, pokedexID: Int) {
@@ -110,7 +114,22 @@ class Pokemon {
                     print(self._description)
                     completed()
                 })
-                
+            }
+            
+            if let evolutions = resultDictionary["evolutions"] as? [[String: String]] where evolutions.count > 0 {
+                if let nextEvolution = evolutions[0]["to"],
+                let level = evolutions[0]["level"],
+                let resourceURI = evolutions[0]["resource_uri"] {
+                    
+                    // Ignore 'mega' evolutions for now
+                    if nextEvolution.rangeOfString("mega") == nil {
+                        let trimmedURI = resourceURI.stringByReplacingOccurrencesOfString("/api/v1/pokemon/", withString: "")
+                        let nextPokemonID = trimmedURI.stringByReplacingOccurrencesOfString("/", withString: "")
+                        
+                        self._nextEvolutionID = nextPokemonID
+                        self._nextEvolutionText = "\(nextEvolution) at level \(level)"
+                    }
+                }
             }
             
             print(self._weight)
@@ -119,6 +138,8 @@ class Pokemon {
             print(self._defense)
             print(self._type)
             
+//            print(self._nextEvolutionText)
+//            print("Next evolution: \(self._nextEvolutionID)")
             completed()
         }
         
